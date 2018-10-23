@@ -63,7 +63,7 @@ public class MyGenericArray<E> {
      */
     public void addToIndex(int index, E e) {
         if (size == getCapacity()) {
-            throw new IllegalArgumentException("数组已经满了");
+            resize(2 * size);
         }
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("插入的位置必须在 [0,size] 之间");
@@ -106,6 +106,22 @@ public class MyGenericArray<E> {
             throw new IllegalArgumentException("索引必须在 [0,size] 之间");
         }
         return data[index];
+    }
+
+    /**
+     * 获取数组中的最后一个元素
+     * @return 数组末尾的元素
+     */
+    public E getLast() {
+        return get(size - 1);
+    }
+
+    /**
+     * 获取数组中的第一个元素
+     * @return 数组头部元素
+     */
+    public E getFirst() {
+        return get(0);
     }
 
     /**
@@ -165,6 +181,8 @@ public class MyGenericArray<E> {
         }
         data[size - 1] = null;
         size--;
+        if(size < getCapacity()/4 && getCapacity()/2 != 0)
+            resize(getCapacity()/2);
         return delValue;
     }
 
@@ -201,6 +219,19 @@ public class MyGenericArray<E> {
         return false;
     }
 
+    /**
+     * 改变数组的长度
+     *
+     * @param newCapacity 新的数组容量
+     */
+    public void resize(int newCapacity) {
+        E[] newData = (E[]) new Object[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("MyGenericArray = {");
@@ -212,5 +243,4 @@ public class MyGenericArray<E> {
         sb.append("}");
         return sb.toString();
     }
-
 }
