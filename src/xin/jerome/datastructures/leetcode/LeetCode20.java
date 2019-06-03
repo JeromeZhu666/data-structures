@@ -10,7 +10,7 @@ import java.util.Stack;
  * @author Jerome Zhu
  * @since 2018.10.23 21:14
  */
-public class Solution {
+public class LeetCode20 {
 
     public boolean isValid(String s) {
         Map<Character, Character> mappings = new HashMap<>();
@@ -56,7 +56,7 @@ public class Solution {
 
     public static void main(String[] args) {
         String s = "([)]";
-        Solution solution = new Solution();
-        System.out.println(solution.isValid(s));
+        LeetCode20 leetCode20 = new LeetCode20();
+        System.out.println(leetCode20.isValid(s));
     }
 }
