@@ -1,12 +1,12 @@
 package xin.jerome.datastructures.linked;
 
 /**
- * 自定义链表带有虚拟头结点
+ * 自定义链表带有虚拟头结点（单向链表）
  *
  * @author Jerome Zhu
  * @since 2018.11.27 20:13
  */
-public class MyLinkedListTwo<E> {
+public class MyLinkedListDummyHead<E> {
 
     /**
      * 虚拟的头结点
@@ -17,7 +17,7 @@ public class MyLinkedListTwo<E> {
     /**
      * 构造函数，初始化链表对象
      */
-    public MyLinkedListTwo() {
+    public MyLinkedListDummyHead() {
         this.dummyHead = new Node();
         this.size = 0;
     }
@@ -35,6 +35,7 @@ public class MyLinkedListTwo<E> {
         }
         // 定义插入位置的前一个结点
         Node prev = dummyHead;
+        // 遍历拿到插入位置的前一个节点
         for (int i = 0; i < index; i++) {
             prev = prev.next;
         }
@@ -65,6 +66,13 @@ public class MyLinkedListTwo<E> {
         addIndex(size, e);
     }
 
+    /**
+     * 获取链表中指定位置的元素
+     *
+     * @param index 指定的位置
+     * @return 该位置的元素
+     * @throws IndexOutOfBoundsException 索引越界
+     */
     public E getIndex(int index) {
         // 如果角标小于0获取越界则报错
         if (index < 0 || index >= size) {
@@ -79,6 +87,7 @@ public class MyLinkedListTwo<E> {
 
     /**
      * 获取头结点的元素
+     *
      * @return 元素内容
      */
     public E getHead() {
@@ -87,6 +96,7 @@ public class MyLinkedListTwo<E> {
 
     /**
      * 获取尾结点的元素
+     *
      * @return 元素内容
      */
     public E getLast() {
@@ -95,26 +105,29 @@ public class MyLinkedListTwo<E> {
 
     /**
      * 修改指定位置的元素
+     *
      * @param index 指定的位置
-     * @param e 修改后的元素
+     * @param e     修改后的元素
+     * @throws IndexOutOfBoundsException 索引越界
      */
     public void set(int index, E e) {
         // 如果角标小于0获取越界则报错
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("索引越界了");
         }
-        Node idnexNode = dummyHead;
+        Node indexNode = dummyHead;
         for (int i = 0; i <= index; i++) {
-            idnexNode = idnexNode.next;
+            indexNode = indexNode.next;
         }
-        idnexNode.e = e;
-
+        indexNode.e = e;
     }
 
     /**
      * 删除指定位置的元素
+     *
      * @param index 指定位置
      * @return 删除元素
+     * @throws IndexOutOfBoundsException 索引越界
      */
     public E del(int index) {
         // 如果角标小于0获取越界则报错
@@ -134,6 +147,7 @@ public class MyLinkedListTwo<E> {
 
     /**
      * 判断是否包含某个元素
+     *
      * @param e 查找的元素
      * @return 布尔值
      */
