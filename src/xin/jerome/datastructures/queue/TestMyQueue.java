@@ -1,6 +1,8 @@
-package xin.jerome.datastructures.queue.impl;
+package xin.jerome.datastructures.queue;
 
 import xin.jerome.datastructures.queue.MyQueue;
+import xin.jerome.datastructures.queue.impl.MyArrayQueue;
+import xin.jerome.datastructures.queue.impl.MyLoopQueue;
 
 import java.util.Random;
 
@@ -10,7 +12,7 @@ import java.util.Random;
  * @author Jerome Zhu
  * @since 2018.10.25 22:52
  */
-public class TestQueue {
+public class TestMyQueue {
 
     public static Double testQueue(MyQueue<Integer> queue, int opCount) {
         // 纳秒值

@@ -1,10 +1,10 @@
-package xin.jerome.datastructures;
+package xin.jerome.datastructures.array;
 
 import xin.jerome.datastructures.array.MyArray;
 import xin.jerome.datastructures.array.MyGenericArray;
 import xin.jerome.datastructures.entity.Student;
 
-public class Main {
+public class TestMyArray {
 
     public static void main(String[] args) {
         testMyArray();
