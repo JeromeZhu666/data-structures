@@ -16,7 +16,7 @@ public class LeetCode0203 {
 
     /**
      * 删除链表中值等于 val 的所有节点
-     *      解决思路假设一个虚拟头结点，用虚拟头结点去遍历。
+     * 解决思路假设一个虚拟头结点，用虚拟头结点去遍历。
      *
      * @param head 待检查链表
      * @param val  给的的值
@@ -50,7 +50,7 @@ public class LeetCode0203 {
 
     /**
      * 删除链表中值等于 val 的所有节点
-     *      解决思路  没有虚拟头结点，先处理头结点然后再去遍历。
+     * 解决思路  没有虚拟头结点，先处理头结点然后再去遍历。
      *
      * @param head 待检查链表
      * @param val  给的的值
@@ -68,7 +68,7 @@ public class LeetCode0203 {
         ListNode preNode = head;
         while (preNode.next != null) {
             delNode = preNode.next;
-            if(delNode.val == val) {
+            if (delNode.val == val) {
                 preNode.next = delNode.next;
                 delNode.next = null;
             } else {
@@ -77,6 +77,30 @@ public class LeetCode0203 {
         }
 
         return head;
+    }
+
+    /**
+     * 删除链表中值等于 val 的所有节点
+     * 递归的解决思路：首先解决最小问题，之后用最小问题还原初始问题
+     *
+     * @param head 待检查链表
+     * @param val  给的的值
+     * @return 处理后的链表
+     */
+    public ListNode removeElements2(ListNode head, int val) {// 2 ms	42.8 MB
+        // 最小问题，链表中没有元素
+        if (head == null)
+            return null;
+
+        // 利用递归的思想，把removeElements2方法看成一个解决完成子问题的方法（不去在乎其具体实现）
+        head.next = removeElements2(head.next, val);
+
+        // 到此已经把  head 节点后面的字链表   处理过值为val的节点，接着就该处理head节点。
+//        if(head.val == val) {
+//            return head.next;
+//        }
+//        return head;
+        return head.val == val ? head.next : head;
     }
 
 }
