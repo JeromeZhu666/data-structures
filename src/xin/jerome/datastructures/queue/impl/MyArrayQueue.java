@@ -4,7 +4,7 @@ import xin.jerome.datastructures.array.MyGenericArray;
 import xin.jerome.datastructures.queue.MyQueue;
 
 /**
- * {@link MyQueue} 实现
+ * {@link MyQueue} 数组实现
  *
  * @author Jerome Zhu
  * @since 2018.10.25 21:23
@@ -59,6 +59,7 @@ public class MyArrayQueue<E> implements MyQueue<E> {
 
     /**
      * 获取队列的容量
+     *
      * @return 容量的大小
      */
     public int getCapacity() {
@@ -70,22 +71,11 @@ public class MyArrayQueue<E> implements MyQueue<E> {
         StringBuilder sb = new StringBuilder("MyArrayQueue: front[");
         for (int i = 0; i < array.getSize(); i++) {
             sb.append(array.get(i));
-            if(i != array.getSize() - 1)
+            if (i != array.getSize() - 1)
                 sb.append(",");
         }
         sb.append("] tail");
         return sb.toString();
     }
 
-    public static void main(String[] args) {
-        MyArrayQueue<Integer> queue = new MyArrayQueue<>();
-        for (int i = 0; i < 10; i++) {
-            queue.enqueue(i);
-            System.out.println(queue);
-            if (i % 3 == 0) {
-                Integer e = queue.dequeue();
-                System.out.println(String.format("Integer : %d dequeue .", e));
-            }
-        }
-    }
 }

@@ -14,6 +14,22 @@ import java.util.Random;
  */
 public class TestMyQueue {
 
+    public static void main(String[] args) {
+        MyArrayQueue<Integer> arrayQueue = new MyArrayQueue<>();
+        MyLoopQueue<Integer> loopQueue = new MyLoopQueue<>();
+//        testQueue(arrayQueue);
+//        testQueue(loopQueue);
+
+
+        int opCount = 1000000;
+
+        double arrayQueueTime = testQueue(arrayQueue, opCount);
+        System.out.println("MyArrayQueue, time:" + arrayQueueTime + "s");
+
+        double loopQueueTime = testQueue(loopQueue, opCount);
+        System.out.println("MyLoopQueue, time:" + loopQueueTime + "s");
+    }
+
     public static Double testQueue(MyQueue<Integer> queue, int opCount) {
         // 纳秒值
         Long startTime = System.nanoTime();
@@ -32,15 +48,14 @@ public class TestMyQueue {
         return (endTime - startTime) / 1000000000.0;
     }
 
-    public static void main(String[] args) {
-        int opCount = 1000000;
-
-        MyArrayQueue<Integer> arrayQueue = new MyArrayQueue<>();
-        double arrayQueueTime = testQueue(arrayQueue, opCount);
-        System.out.println("MyArrayQueue, time:" + arrayQueueTime + "s");
-
-        MyLoopQueue<Integer> loopQueue = new MyLoopQueue<>();
-        double loopQueueTime = testQueue(loopQueue, opCount);
-        System.out.println("MyLoopQueue, time:" + loopQueueTime + "s");
+    private static void testQueue(MyQueue<Integer> queue) {
+        for (int i = 0; i < 10; i++) {
+            queue.enqueue(i);
+            System.out.println(queue);
+            if (i % 3 == 0) {
+                Integer e = queue.dequeue();
+                System.out.println(String.format("Integer : %d dequeue .", e));
+            }
+        }
     }
 }

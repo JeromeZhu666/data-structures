@@ -126,23 +126,12 @@ public class MyLoopQueue<E> implements MyQueue<E> {
         StringBuilder sb = new StringBuilder("MyArrayQueue: front[");
         for (int i = front; i != tail; i = (i + 1) % data.length) {
             sb.append(data[i]);
-            if((i + 1) % data.length != tail)
+            if ((i + 1) % data.length != tail)
                 sb.append(",");
         }
         sb.append("] tail");
-        sb.append(String.format("  size : %d , capacity : %d",size ,getCapacity()));
+        sb.append(String.format("  size : %d , capacity : %d", size, getCapacity()));
         return sb.toString();
     }
 
-    public static void main(String[] args) {
-        MyLoopQueue<Integer> queue = new MyLoopQueue <>(5);
-        for (int i = 0; i < 10; i++) {
-            queue.enqueue(i);
-            System.out.println(queue);
-            if (i % 3 == 0) {
-                Integer e = queue.dequeue();
-                System.out.println(String.format("Integer : %d dequeue .", e));
-            }
-        }
-    }
 }
