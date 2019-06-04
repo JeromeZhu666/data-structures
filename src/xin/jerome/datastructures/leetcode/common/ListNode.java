@@ -17,7 +17,7 @@ public class ListNode {
      * @param arr 数组参数
      */
     public ListNode(int[] arr) {
-        if(arr == null || arr.length == 0)
+        if (arr == null || arr.length == 0)
             throw new IllegalArgumentException("Arr can not be empty.");
         this.val = arr[0];
         ListNode cur = this;
@@ -32,7 +32,7 @@ public class ListNode {
         StringBuilder sb = new StringBuilder("ListNode: ");
         ListNode cur = this;
         while (cur != null) {
-            sb.append(cur.val+"->");
+            sb.append(cur.val + "->");
             cur = cur.next;
         }
         sb.append("null");
