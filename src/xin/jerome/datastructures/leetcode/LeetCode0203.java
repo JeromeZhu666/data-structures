@@ -103,4 +103,10 @@ public class LeetCode0203 {
         return head.val == val ? head.next : head;
     }
 
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 6, 4, 5, 6};
+        int val = 6;
+        ListNode result = new LeetCode0203().removeElements(new ListNode(arr), val);
+        System.out.println(result);
+    }
 }
