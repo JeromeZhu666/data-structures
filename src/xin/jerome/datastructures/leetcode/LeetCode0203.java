@@ -27,7 +27,7 @@ public class LeetCode0203 {
         preNode.next = head;
         ListNode resultNode = preNode;
 
-        // 没有处理删除节点  从链表中断开     2 ms	42.9 MB
+        // 没有处理删除节点  从链表中断开     2 ms	42.9 MB 战胜 97.06 % 的 java 提交记录
 //        while (preNode.next != null) {
 //            if (preNode.next.val == val) {
 //                preNode.next = preNode.next.next;
@@ -35,7 +35,7 @@ public class LeetCode0203 {
 //                preNode = preNode.next;
 //            }
 //        }
-        // 优化了已删除节点  从链表中断开     2 ms	38.4 MB
+        // 优化了已删除节点  从链表中断开     2 ms	38.4 MB 战胜 97.06 % 的 java 提交记录
         while (preNode.next != null) {
             ListNode delNode = preNode.next;
             if (delNode.val == val) {
@@ -56,7 +56,7 @@ public class LeetCode0203 {
      * @param val  给的的值
      * @return 处理后的链表
      */
-    public ListNode removeElements1(ListNode head, int val) { // 2 ms	42.4 MB
+    public ListNode removeElements1(ListNode head, int val) { // 2 ms	42.4 MB 战胜 97.06 % 的 java 提交记录
         ListNode delNode;
         while (head != null && head.val == val) {
             delNode = head;
@@ -87,7 +87,7 @@ public class LeetCode0203 {
      * @param val  给的的值
      * @return 处理后的链表
      */
-    public ListNode removeElements2(ListNode head, int val) {// 2 ms	42.8 MB
+    public ListNode removeElements2(ListNode head, int val) {// 2 ms 42.7 MB 战胜 97.06 % 的 java 提交记录
         // 最小问题，链表中没有元素
         if (head == null)
             return null;

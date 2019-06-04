@@ -22,6 +22,7 @@ import java.util.HashMap;
  * @since 2019.06.03 22:08
  */
 public class LeetCode0002 {
+
     /**
      * 解决思路将每一位相加的值先放入map，然后再map中重新构造链表
      *

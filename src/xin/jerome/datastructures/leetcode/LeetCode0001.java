@@ -17,13 +17,6 @@ import java.util.HashMap;
  */
 public class LeetCode0001 {
 
-    public static void main(String[] args) {
-        int[] nums = {3, 2, 4};
-        int target = 6;
-        int[] indexes = new LeetCode0001().twoSum1(nums, target);
-        System.out.println(String.format("[%d,%d]", indexes[0], indexes[1]));
-    }
-
     /**
      * 暴力遍历  时间复杂度为 O(n^2)
      * 不是最优解
@@ -69,7 +62,7 @@ public class LeetCode0001 {
     public int[] twoSum1(int[] nums, int target) {
         int[] result = new int[2];
         HashMap<Integer, Integer> map = new HashMap<>();
-        // 每次put操作需要 ：计算一下hash值 + 并且两次从数组中取元素 + 两次差值计算    8 ms	38.3 MB
+        // 每次put操作需要 ：计算一下hash值 + 并且两次从数组中取元素 + 两次差值计算    8 ms  38.3 MB 战胜 84.37 % 的 java 提交记录
 //        for (int i = 0; i < nums.length; i++) {
 //            int val = nums[i];
 //            if (map.containsKey(target - val)) {
@@ -80,7 +73,7 @@ public class LeetCode0001 {
 //                map.put(nums[i], i);
 //            }
 //        }
-        // 优化掉了一次数组中取元素 + 一次差值计算    7 ms	37.1 MB
+        // 优化掉了一次数组中取元素 + 一次差值计算    7 ms	37.1 MB 战胜 88.98 % 的 java 提交记录
 //        for (int i = 0; i < nums.length; i++) {
 //            int val = nums[i];
 //            int diff = target - val;
@@ -92,15 +85,22 @@ public class LeetCode0001 {
 //                map.put(val, i);
 //            }
 //        }
-        // 优化掉数组的创建与赋值  3 ms	35.8 MB
-        for(int i = 0;i < nums.length;i++) {
+        // 优化掉数组的创建与赋值  3 ms	35.8 MB 战胜 99.41 % 的 java 提交记录
+        for (int i = 0; i < nums.length; i++) {
             int val = nums[i];
             int diff = target - val;
-            if(map.containsKey(diff)) {
-                return new int[] {map.get(diff),i};
+            if (map.containsKey(diff)) {
+                return new int[]{map.get(diff), i};
             }
             map.put(val, i);
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {3, 2, 4};
+        int target = 6;
+        int[] indexes = new LeetCode0001().twoSum1(nums, target);
+        System.out.println(String.format("[%d,%d]", indexes[0], indexes[1]));
     }
 }

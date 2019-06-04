@@ -30,7 +30,7 @@ public class LeetCode0020 {
      * @param s 待验证的符号
      * @return 验证结果
      */
-    public boolean isValid(String s) {
+    public boolean isValid(String s) { //   5 ms 33.4 MB 战胜 85.02 % 的 java 提交记录
         Map<Character, Character> mappings = new HashMap<>();
         mappings.put(')', '(');
         mappings.put(']', '[');
@@ -57,7 +57,7 @@ public class LeetCode0020 {
      * @param s 待验证的符号
      * @return 验证结果
      */
-    public boolean isValid1(String s) {
+    public boolean isValid1(String s) { // 4 ms	33.2 MB 战胜 92.19 % 的 java 提交记录
         Stack<Character> stack = new Stack();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
