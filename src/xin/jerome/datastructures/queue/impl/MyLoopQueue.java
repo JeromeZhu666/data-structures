@@ -123,7 +123,7 @@ public class MyLoopQueue<E> implements MyQueue<E> {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("MyArrayQueue: front[");
+        StringBuilder sb = new StringBuilder("MyLoopQueue: front[");
         for (int i = front; i != tail; i = (i + 1) % data.length) {
             sb.append(data[i]);
             if ((i + 1) % data.length != tail)
