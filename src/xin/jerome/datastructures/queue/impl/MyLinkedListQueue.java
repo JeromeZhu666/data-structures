@@ -42,10 +42,10 @@ public class MyLinkedListQueue<E> implements MyQueue<E> {
         size++;
     }
     @Override
-    public E poll() {
+    public E remove() {
         // 判断队列是否为空
         if(isEmpty())
-            throw new IllegalArgumentException("Cannot poll from an Empty queue.");
+            throw new IllegalArgumentException("Cannot remove from an Empty queue.");
 
         Node delNode = head;
         if(size == 1) {

@@ -38,7 +38,7 @@ public class MyArrayQueue<E> implements MyQueue<E> {
     }
 
     @Override
-    public E poll() {
+    public E remove() {
         return array.deleteFirst();
     }
 

@@ -63,7 +63,7 @@ public class MyLoopQueue<E> implements MyQueue<E> {
     }
 
     @Override
-    public E poll() {
+    public E remove() {
         // 判断队列是否为空，再进行出队操作
         if (isEmpty())
             throw new IllegalArgumentException("队列为空，不能进行出队操作！");

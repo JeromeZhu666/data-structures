@@ -51,9 +51,9 @@ public class TestMyQueue {
         for (int i = 0; i < opCount; i++)
             queue.add(random.nextInt(Integer.MAX_VALUE));
 
-        System.out.println("poll ...");
+        System.out.println("remove ...");
         for (int i = 0; i < opCount; i++) {
-            queue.poll();
+            queue.remove();
         }
 
         Long endTime = System.nanoTime();
@@ -68,8 +68,8 @@ public class TestMyQueue {
             queue.add(i);
             System.out.println(queue);
             if (i % 3 == 0) {
-                Integer e = queue.poll();
-                System.out.println(String.format("Integer : %d poll .", e));
+                Integer e = queue.remove();
+                System.out.println(String.format("Integer : %d remove .", e));
             }
         }
     }

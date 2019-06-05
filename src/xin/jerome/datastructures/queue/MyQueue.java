@@ -20,7 +20,7 @@ public interface MyQueue<E> {
      *
      * @return 队首的元素
      */
-    E poll();
+    E remove();
 
     /**
      * 查看队首的元素
