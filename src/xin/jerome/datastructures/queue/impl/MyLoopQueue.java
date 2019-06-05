@@ -50,7 +50,7 @@ public class MyLoopQueue<E> implements MyQueue<E> {
     }
 
     @Override
-    public void enqueue(E e) {
+    public void add(E e) {
         // 如果循环队列满的话需要进行扩容
         if ((tail + 1) % data.length == front)
             resize(getCapacity() * 2);
@@ -63,7 +63,7 @@ public class MyLoopQueue<E> implements MyQueue<E> {
     }
 
     @Override
-    public E dequeue() {
+    public E poll() {
         // 判断队列是否为空，再进行出队操作
         if (isEmpty())
             throw new IllegalArgumentException("队列为空，不能进行出队操作！");

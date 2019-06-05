@@ -30,7 +30,7 @@ public class MyLinkedListQueue<E> implements MyQueue<E> {
     }
 
     @Override
-    public void enqueue(E e) {
+    public void add(E e) {
         Node node = new Node(e);
         if (size == 0) {
             tail = node;
@@ -42,10 +42,10 @@ public class MyLinkedListQueue<E> implements MyQueue<E> {
         size++;
     }
     @Override
-    public E dequeue() {
+    public E poll() {
         // 判断队列是否为空
         if(isEmpty())
-            throw new IllegalArgumentException("Cannot dequeue from an Empty queue.");
+            throw new IllegalArgumentException("Cannot poll from an Empty queue.");
 
         Node delNode = head;
         if(size == 1) {

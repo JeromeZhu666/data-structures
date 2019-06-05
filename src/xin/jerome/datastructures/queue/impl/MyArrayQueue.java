@@ -33,12 +33,12 @@ public class MyArrayQueue<E> implements MyQueue<E> {
     }
 
     @Override
-    public void enqueue(E e) {
+    public void add(E e) {
         array.addToLast(e);
     }
 
     @Override
-    public E dequeue() {
+    public E poll() {
         return array.deleteFirst();
     }
 

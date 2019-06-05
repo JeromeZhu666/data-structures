@@ -13,14 +13,14 @@ public interface MyQueue<E> {
      *
      * @param e 入队的对象
      */
-    void enqueue(E e);
+    void add(E e);
 
     /**
      * 元素出队
      *
      * @return 队首的元素
      */
-    E dequeue();
+    E poll();
 
     /**
      * 查看队首的元素

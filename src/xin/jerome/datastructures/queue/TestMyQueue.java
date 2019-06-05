@@ -1,6 +1,5 @@
 package xin.jerome.datastructures.queue;
 
-import xin.jerome.datastructures.queue.MyQueue;
 import xin.jerome.datastructures.queue.impl.MyArrayQueue;
 import xin.jerome.datastructures.queue.impl.MyLinkedListQueue;
 import xin.jerome.datastructures.queue.impl.MyLoopQueue;
@@ -48,13 +47,13 @@ public class TestMyQueue {
         Long startTime = System.nanoTime();
 
         Random random = new Random();
-        System.out.println("enqueue ...");
+        System.out.println("add ...");
         for (int i = 0; i < opCount; i++)
-            queue.enqueue(random.nextInt(Integer.MAX_VALUE));
+            queue.add(random.nextInt(Integer.MAX_VALUE));
 
-        System.out.println("dequeue ...");
+        System.out.println("poll ...");
         for (int i = 0; i < opCount; i++) {
-            queue.dequeue();
+            queue.poll();
         }
 
         Long endTime = System.nanoTime();
@@ -66,11 +65,11 @@ public class TestMyQueue {
      */
     private static void testQueue(MyQueue<Integer> queue) {
         for (int i = 0; i < 10; i++) {
-            queue.enqueue(i);
+            queue.add(i);
             System.out.println(queue);
             if (i % 3 == 0) {
-                Integer e = queue.dequeue();
-                System.out.println(String.format("Integer : %d dequeue .", e));
+                Integer e = queue.poll();
+                System.out.println(String.format("Integer : %d poll .", e));
             }
         }
     }
