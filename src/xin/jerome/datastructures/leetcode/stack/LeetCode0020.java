@@ -1,4 +1,4 @@
-package xin.jerome.datastructures.leetcode;
+package xin.jerome.datastructures.leetcode.stack;
 
 import java.util.HashMap;
 import java.util.Map;

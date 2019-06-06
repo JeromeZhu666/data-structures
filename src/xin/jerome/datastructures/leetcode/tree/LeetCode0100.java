@@ -1,6 +1,6 @@
-package xin.jerome.datastructures.leetcode;
+package xin.jerome.datastructures.leetcode.tree;
 
-import xin.jerome.datastructures.leetcode.common.TreeNode;
+import xin.jerome.datastructures.leetcode.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

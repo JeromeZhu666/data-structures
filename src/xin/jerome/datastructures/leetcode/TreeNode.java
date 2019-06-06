@@ -1,4 +1,4 @@
-package xin.jerome.datastructures.leetcode.common;
+package xin.jerome.datastructures.leetcode;
 
 /**
  * 树节点的定义

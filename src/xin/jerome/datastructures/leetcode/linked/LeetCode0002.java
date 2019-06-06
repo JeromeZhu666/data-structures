@@ -1,6 +1,6 @@
-package xin.jerome.datastructures.leetcode;
+package xin.jerome.datastructures.leetcode.linked;
 
-import xin.jerome.datastructures.leetcode.common.ListNode;
+import xin.jerome.datastructures.leetcode.ListNode;
 
 import java.util.HashMap;
 
