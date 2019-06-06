@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 二叉树的最大深度:
+ * 二叉树的最大深度(就是找最远的叶子节点):
  * <br>给定一个二叉树，找出其最大深度.
  * <br>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数.
  * <br>说明: 叶子节点是指没有子节点的节点.
@@ -47,26 +47,18 @@ public class LeetCode0104 {
      * @return 最大深度的值
      */
     public int maxDepth1(TreeNode root) { // 2 ms 36.6 MB 战胜 15.47 % 的 java 提交记录
-        if (root == null) {
-            return 0;
-        }
+        if (root == null) return 0;
+
         int depth = 0;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        int levelSize = queue.size();
         while (!queue.isEmpty()) {
-            TreeNode cur = queue.remove();
-            levelSize--;
-
-            if (cur.left != null)
-                queue.add(cur.left);
-            if (cur.right != null)
-                queue.add(cur.right);
-            // levelSize 为 0 时就是本层被遍历完的时候,此时队列中元素的个数就是下层元素总数.
-            if (levelSize == 0) {
-                depth++;
-                levelSize = queue.size();
+            for (int i = queue.size(); i > 0; i--) {
+                TreeNode cur = queue.remove();
+                if (cur.left != null) queue.add(cur.left);
+                if (cur.right != null) queue.add(cur.right);
             }
+            depth++;
         }
         return depth;
     }
