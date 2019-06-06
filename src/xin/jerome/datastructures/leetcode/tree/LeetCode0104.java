@@ -26,7 +26,7 @@ import java.util.Queue;
 public class LeetCode0104 {
 
     /**
-     * 获取当前二叉树的最大深度(递归实现)
+     * 获取当前二叉树的最大深度(递归实现-深度优先遍历)
      *
      * @param root 根节点
      * @return 最大深度的值
@@ -41,7 +41,7 @@ public class LeetCode0104 {
     }
 
     /**
-     * 获取当前二叉树的最大深度(迭代实现)
+     * 获取当前二叉树的最大深度(迭代实现-广度优先遍历)
      *
      * @param root 根节点
      * @return 最大深度的值
