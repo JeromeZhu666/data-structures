@@ -88,7 +88,7 @@ public class TreeNode {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("root:"+ this.val +"; 前序遍历:{");
+        sb.append("root:" + this.val + "; 前序遍历:{");
         recursivePreOrder(this, sb);
         sb.deleteCharAt(sb.length() - 1).append("};");
         sb.append(" 中序遍历:{");
