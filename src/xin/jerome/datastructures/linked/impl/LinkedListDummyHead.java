@@ -1,4 +1,6 @@
-package xin.jerome.datastructures.linked;
+package xin.jerome.datastructures.linked.impl;
+
+import xin.jerome.datastructures.linked.MyLinkedList;
 
 /**
  * 自定义链表带有虚拟头结点（单向链表）
@@ -6,7 +8,7 @@ package xin.jerome.datastructures.linked;
  * @author Jerome Zhu
  * @since 2018.11.27 20:13
  */
-public class MyLinkedListDummyHead<E> {
+public class LinkedListDummyHead<E> implements MyLinkedList<E> {
 
     /**
      * 虚拟的头结点
@@ -17,7 +19,7 @@ public class MyLinkedListDummyHead<E> {
     /**
      * 构造函数，初始化链表对象
      */
-    public MyLinkedListDummyHead() {
+    public LinkedListDummyHead() {
         this.dummyHead = new Node();
         this.size = 0;
     }
@@ -53,6 +55,7 @@ public class MyLinkedListDummyHead<E> {
      *
      * @param e 添加的元素
      */
+    @Override
     public void addHead(E e) {
         addIndex(0, e);
     }
@@ -143,6 +146,26 @@ public class MyLinkedListDummyHead<E> {
         delNode.next = null;
         size--;
         return delNode.e;
+    }
+
+    /**
+     * 删除指定的元素
+     *
+     * @param e 指定元素e
+     */
+    @Override
+    public void del(E e) {
+        Node curNode = dummyHead;
+        while (curNode.next != null) {
+            if(e.equals(curNode.next.e)) {
+                Node delNode = curNode.next;
+                curNode.next = delNode.next;
+                delNode.next = null;
+                size--;
+                break;
+            }
+            curNode = curNode.next;
+        }
     }
 
     /**

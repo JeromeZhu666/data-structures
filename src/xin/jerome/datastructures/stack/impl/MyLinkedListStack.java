@@ -1,10 +1,10 @@
 package xin.jerome.datastructures.stack.impl;
 
 import xin.jerome.datastructures.stack.MyStack;
-import xin.jerome.datastructures.linked.MyLinkedList;
+import xin.jerome.datastructures.linked.impl.LinkedList;
 
 /**
- * {@link MyStack}链表{@link MyLinkedList}实现
+ * {@link MyStack}链表{@link LinkedList}实现
  *
  * @author Jerome Zhu
  * @since 2019.06.03 15:52
@@ -14,13 +14,13 @@ public class MyLinkedListStack<E> implements MyStack<E>{
     /**
      * 存放栈中元素的容器
      */
-    private MyLinkedList<E> list;
+    private LinkedList<E> list;
 
     /**
      * 构造函数
      */
     public MyLinkedListStack() {
-        list = new MyLinkedList<>();
+        list = new LinkedList<>();
     }
 
     @Override
